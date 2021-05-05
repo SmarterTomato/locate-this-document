@@ -1,0 +1,121 @@
+{
+  "name": "locate-this-document",
+  "displayName": "Locate This Document",
+  "description": "Locate This Document add a button to locate current active document to the vscode explorer panel, so you can find your file by clicking (or by assigned shortcut)",
+  "version": "v1.0.0",
+  "engines": {
+    "vscode": "^1.55.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "locate",
+    "document",
+    "reveal",
+    "open",
+    "explorer"
+  ],
+  "activationEvents": [
+    "onCommand:locateThisDocument.locateThisDocument",
+    "onCommand:locateThisDocument.openInFileExplorer",
+    "onCommand:locateThisDocument.openWorkspaceRootFolderInFileExplorer"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "contributes": {
+    "commands": [{
+        "command": "locateThisDocument.locateThisDocument",
+        "title": "Locate This Document",
+        "category": "Locate This Document",
+        "icon": {
+          "light": "resources/light/locate.png",
+          "dark": "resources/dark/locate.png"
+        }
+      },
+      {
+        "command": "locateThisDocument.openInFileExplorer",
+        "title": "Open in File Explorer",
+        "category": "Locate This Document",
+        "icon": {
+          "light": "resources/light/snippet_folder.png",
+          "dark": "resources/dark/snippet_folder.png"
+        }
+      },
+      {
+        "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
+        "title": "Open Workspace Root Folder in File Explorer",
+        "category": "Locate This Document",
+        "icon": {
+          "light": "resources/light/folder.png",
+          "dark": "resources/dark/folder.png"
+        }
+      }
+    ],
+    "keybindings": [{
+        "command": "locateThisDocument.locateThisDocument",
+        "key": "ctrl+'"
+      },
+      {
+        "command": "locateThisDocument.openInFileExplorer",
+        "key": "ctrl+alt+'"
+      },
+      {
+        "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
+        "key": "ctrl+shift+alt+'",
+        "when": "workspaceFolderCount == 1"
+      }
+    ],
+    "menus": {
+      "editor/title": [{
+          "command": "locateThisDocument.locateThisDocument",
+          "group": "navigation@1"
+        },
+        {
+          "command": "locateThisDocument.openInFileExplorer",
+          "group": "navigation@2"
+        }
+      ],
+      "view/title": [{
+          "command": "locateThisDocument.locateThisDocument",
+          "group": "navigation",
+          "when": "view == workbench.explorer.fileView && editorIsOpen"
+        },
+        {
+          "command": "locateThisDocument.openInFileExplorer",
+          "group": "navigation",
+          "when": "view == workbench.explorer.fileView"
+        },
+        {
+          "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
+          "group": "navigation",
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1"
+        }
+      ],
+      "editor/title/context": [{
+        "command": "locateThisDocument.locateThisDocument",
+        "group": "navigation"
+      }]
+    },
+    "devDependencies": {
+      "@types/glob": "^7.1.3",
+      "@types/mocha": "^8.0.4",
+      "@types/node": "^12.11.7",
+      "@types/vscode": "^1.55.0",
+      "@typescript-eslint/eslint-plugin": "^4.14.1",
+      "@typescript-eslint/parser": "^4.14.1",
+      "eslint": "^7.19.0",
+      "glob": "^7.1.6",
+      "mocha": "^8.2.1",
+      "typescript": "^4.1.3",
+      "vscode-test": "^1.5.0"
+    }
+  }
+}
