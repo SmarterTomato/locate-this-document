@@ -18,20 +18,25 @@ export default class FileUtils {
   }
 
   static openExplorerInWindows(filePath: string) {
-    child_process.exec(`explorer /select, "${filePath}"`);
+    const isFile = fs.lstatSync(filePath).isFile();
+    if (isFile) {
+      child_process.exec(`explorer /select, "${filePath}"`);
+    } else {
+      child_process.exec(`explorer "${filePath}"`);
+    }
   }
 
   static openExplorerInMac(filePath: string) {
     const isFile = fs.lstatSync(filePath).isFile();
     const pathToOpen = isFile ? path.dirname(filePath) : filePath;
 
-    child_process.exec(`open  ${pathToOpen}`);
+    child_process.exec(`open "${pathToOpen}"`);
   }
 
   static openExplorerInLinux(filePath: string) {
     const isFile = fs.lstatSync(filePath).isFile();
     const pathToOpen = isFile ? path.dirname(filePath) : filePath;
 
-    child_process.exec(`xdg-open  ${pathToOpen}`);
+    child_process.exec(`xdg-open "${pathToOpen}"`);
   }
 }

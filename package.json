@@ -26,7 +26,8 @@
   },
   "activationEvents": [
     "onCommand:locateThisDocument.locateThisDocument",
-    "onCommand:locateThisDocument.openInFileExplorer",
+    "onCommand:locateThisDocument.locateActiveDocument",
+    "onCommand:locateThisDocument.openActiveDocumentInFileExplorer",
     "onCommand:locateThisDocument.openWorkspaceRootFolderInFileExplorer"
   ],
   "main": "./out/extension.js",
@@ -58,8 +59,8 @@
         }
       },
       {
-        "command": "locateThisDocument.openInFileExplorer",
-        "title": "Open in File Explorer",
+        "command": "locateThisDocument.openActiveDocumentInFileExplorer",
+        "title": "Open Active Document in File Explorer",
         "category": "Locate This Document",
         "icon": {
           "light": "resources/images/light/snippet_folder.png",
@@ -81,7 +82,7 @@
         "key": "ctrl+'"
       },
       {
-        "command": "locateThisDocument.openInFileExplorer",
+        "command": "locateThisDocument.openActiveDocumentInFileExplorer",
         "key": "ctrl+alt+'"
       },
       {
@@ -96,7 +97,7 @@
           "group": "navigation@1"
         },
         {
-          "command": "locateThisDocument.openInFileExplorer",
+          "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation@2"
         }
       ],
@@ -106,9 +107,9 @@
           "when": "view == workbench.explorer.fileView && editorIsOpen"
         },
         {
-          "command": "locateThisDocument.openInFileExplorer",
+          "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView"
+          "when": "view == workbench.explorer.fileView && editorIsOpen"
         },
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",

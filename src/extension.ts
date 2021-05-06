@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import LocateThisDocumentService from "./services/LocateThisDocumentService";
+import LocateThisDocumentService from "./services/locateThisDocumentService";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,11 +14,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   const locateThisDocumentDisposable = vscode.commands.registerCommand(
     "locateThisDocument.locateThisDocument",
-    (args: vscode.Uri | undefined) => {
+    (args: vscode.Uri) => {
       console.log("Locate this document command started");
 
       if (!args) {
-        const message = `Locate this document is activated, but no active text editor found`;
+        const message = `Locate this document is activated, but no text editor found`;
         vscode.window.showInformationMessage(message);
         console.log(message);
         return;
@@ -47,22 +47,38 @@ export function activate(context: vscode.ExtensionContext) {
   );
   context.subscriptions.push(locateActiveDocumentDisposable);
 
-  const openInFileExplorerDisposable = vscode.commands.registerCommand(
-    "locateThisDocument.openInFileExplorer",
-    async (args: vscode.Uri | undefined) => {
-      console.log("Open in file explorer command started");
+  const openActiveDocumentInFileExplorerDisposable = vscode.commands.registerCommand(
+    "locateThisDocument.openActiveDocumentInFileExplorer",
+    async () => {
+      console.log("Open active document in file explorer command started");
 
-      service.openInFileExplorer(args);
+      const activeTextEditor = vscode.window.activeTextEditor;
+      if (!activeTextEditor) {
+        const message = `Open active document in file explorer is activated, but no active text editor found`;
+        vscode.window.showInformationMessage(message);
+        console.log(message);
+        return;
+      }
+
+      service.openInFileExplorer(activeTextEditor.document.uri);
     }
   );
-  context.subscriptions.push(openInFileExplorerDisposable);
+  context.subscriptions.push(openActiveDocumentInFileExplorerDisposable);
 
   const openWorkspaceRootFolderInFileExplorerDisposable = vscode.commands.registerCommand(
     "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
-    (args: vscode.Uri | undefined) => {
+    () => {
       console.log("Open workspace root folder in file explorer in file explorer command started");
 
-      service.openWorkspaceRootFolderInFileExplorer();
+      const folders = vscode.workspace.workspaceFolders;
+      if (!folders) {
+        const message = `Open workspace root folder in file explorer in file explorer is activated, but no workspace folder found`;
+        vscode.window.showInformationMessage(message);
+        console.log(message);
+        return;
+      }
+
+      service.openInFileExplorer(folders[0].uri);
     }
   );
   context.subscriptions.push(openWorkspaceRootFolderInFileExplorerDisposable);
