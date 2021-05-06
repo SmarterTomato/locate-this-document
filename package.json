@@ -16,6 +16,14 @@
     "open",
     "explorer"
   ],
+  "icon": "resources/images/light/locate.png",
+  "author": "Tommy Zhao",
+  "publisher": "SmarterTomato",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SmarterTomato/locate-this-document.git"
+  },
   "activationEvents": [
     "onCommand:locateThisDocument.locateThisDocument",
     "onCommand:locateThisDocument.openInFileExplorer",
@@ -36,8 +44,17 @@
         "title": "Locate This Document",
         "category": "Locate This Document",
         "icon": {
-          "light": "resources/light/locate.png",
-          "dark": "resources/dark/locate.png"
+          "light": "resources/images/light/locate.png",
+          "dark": "resources/images/dark/locate.png"
+        }
+      },
+      {
+        "command": "locateThisDocument.locateActiveDocument",
+        "title": "Locate Active Document",
+        "category": "Locate This Document",
+        "icon": {
+          "light": "resources/images/light/locate.png",
+          "dark": "resources/images/dark/locate.png"
         }
       },
       {
@@ -45,8 +62,8 @@
         "title": "Open in File Explorer",
         "category": "Locate This Document",
         "icon": {
-          "light": "resources/light/snippet_folder.png",
-          "dark": "resources/dark/snippet_folder.png"
+          "light": "resources/images/light/snippet_folder.png",
+          "dark": "resources/images/dark/snippet_folder.png"
         }
       },
       {
@@ -54,13 +71,13 @@
         "title": "Open Workspace Root Folder in File Explorer",
         "category": "Locate This Document",
         "icon": {
-          "light": "resources/light/folder.png",
-          "dark": "resources/dark/folder.png"
+          "light": "resources/images/light/folder.png",
+          "dark": "resources/images/dark/folder.png"
         }
       }
     ],
     "keybindings": [{
-        "command": "locateThisDocument.locateThisDocument",
+        "command": "locateThisDocument.locateActiveDocument",
         "key": "ctrl+'"
       },
       {
@@ -75,7 +92,7 @@
     ],
     "menus": {
       "editor/title": [{
-          "command": "locateThisDocument.locateThisDocument",
+          "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation@1"
         },
         {
@@ -84,7 +101,7 @@
         }
       ],
       "view/title": [{
-          "command": "locateThisDocument.locateThisDocument",
+          "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation",
           "when": "view == workbench.explorer.fileView && editorIsOpen"
         },

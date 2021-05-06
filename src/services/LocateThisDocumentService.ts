@@ -16,23 +16,12 @@ export default class LocateThisDocumentService {
 
   //#endregion
 
-  locateThisDocument(uri: vscode.Uri | undefined) {
+  locateDocument(uri: vscode.Uri | undefined) {
     if (!uri) {
-      const activeTextEditor = vscode.window.activeTextEditor;
-      if (!activeTextEditor) {
-        // This should not happen right now due to the shortcut binding
-        // Don't do anything if not text editor for now
-        vscode.window.showInformationMessage(
-          `Locate this document activated, but no active text editor found`
-        );
-        console.log(`Locate this document activated, but no active text editor found`);
-        return;
-      }
-
-      uri = activeTextEditor.document.uri;
+      return;
     }
 
-    // - Run the build in comment to locate this document in explorer taab
+    // - Run the build in comment to locate this document in explorer tab
     vscode.commands.executeCommand("revealInExplorer", uri);
   }
 

@@ -8,19 +8,44 @@ import LocateThisDocumentService from "./services/LocateThisDocumentService";
 export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log("Locate This Document is now active");
+  console.log("Locate This Document extension is now active");
 
   const service = LocateThisDocumentService.getInstance();
 
   const locateThisDocumentDisposable = vscode.commands.registerCommand(
     "locateThisDocument.locateThisDocument",
     (args: vscode.Uri | undefined) => {
-      console.log("Locate document command started");
+      console.log("Locate this document command started");
 
-      service.locateThisDocument(args);
+      if (!args) {
+        const message = `Locate this document is activated, but no active text editor found`;
+        vscode.window.showInformationMessage(message);
+        console.log(message);
+        return;
+      }
+
+      service.locateDocument(args);
     }
   );
   context.subscriptions.push(locateThisDocumentDisposable);
+
+  const locateActiveDocumentDisposable = vscode.commands.registerCommand(
+    "locateThisDocument.locateActiveDocument",
+    () => {
+      console.log("Locate active document command started");
+
+      const activeTextEditor = vscode.window.activeTextEditor;
+      if (!activeTextEditor) {
+        const message = `Locate active document is activated, but no active text editor found`;
+        vscode.window.showInformationMessage(message);
+        console.log(message);
+        return;
+      }
+
+      service.locateDocument(activeTextEditor.document.uri);
+    }
+  );
+  context.subscriptions.push(locateActiveDocumentDisposable);
 
   const openInFileExplorerDisposable = vscode.commands.registerCommand(
     "locateThisDocument.openInFileExplorer",
