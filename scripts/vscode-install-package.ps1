@@ -1,4 +1,3 @@
-
 $files = Get-ChildItem "./" -Filter *.vsix
 
 if (!$files) {

@@ -1,7 +1,7 @@
 {
   "name": "locate-this-document",
   "displayName": "Locate This Document",
-  "description": "Locate This Document add a button to locate current active document to the vscode explorer panel, so you can find your file by clicking (or by assigned shortcut)",
+  "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
   "version": "v1.0.0",
   "engines": {
     "vscode": "^1.55.0"
@@ -83,7 +83,7 @@
       },
       {
         "command": "locateThisDocument.openActiveDocumentInFileExplorer",
-        "key": "ctrl+alt+'"
+        "key": "ctrl+shift+'"
       },
       {
         "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",

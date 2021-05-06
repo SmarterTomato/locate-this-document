@@ -1,9 +1,10 @@
 # Change Log
 
-All notable changes to the "locate-this-document" extension will be documented in this file.
+## v1.0.0 Initial release - 2020-05-06
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### New
 
-## [Unreleased]
-
-- Initial release
+- Locate this document command
+- Locate active document command
+- Open active document in file explorer command
+- Open workspace root folder in file explorer command
