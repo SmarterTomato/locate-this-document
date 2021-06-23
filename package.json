@@ -2,7 +2,7 @@
   "name": "locate-this-document",
   "displayName": "Locate This Document",
   "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.55.0"
   },
@@ -40,8 +40,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "locateThisDocument.locateThisDocument",
         "title": "Locate This Document",
         "category": "Locate This Document",
@@ -78,8 +77,7 @@
         }
       }
     ],
-    "keybindings": [
-      {
+    "keybindings": [{
         "command": "locateThisDocument.locateActiveDocument",
         "key": "ctrl+'"
       },
@@ -94,39 +92,58 @@
       }
     ],
     "menus": {
-      "editor/title": [
-        {
+      "editor/title": [{
           "command": "locateThisDocument.locateActiveDocument",
+          "when": "config.locateThisDocument.showEditorTitleIcons",
           "group": "navigation@1"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
+          "when": "config.locateThisDocument.showEditorTitleIcons && !virtualWorkspace",
           "group": "navigation@2"
         }
       ],
-      "view/title": [
-        {
+      "view/title": [{
           "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons && !virtualWorkspace"
         },
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1"
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.showExplorerIcons && !virtualWorkspace"
         }
       ],
-      "editor/title/context": [
-        {
-          "command": "locateThisDocument.locateThisDocument",
-          "group": "navigation"
+      "editor/title/context": [{
+        "command": "locateThisDocument.locateThisDocument",
+        "when": "config.locateThisDocument.showEditorTitleContext",
+        "group": "navigation"
+      }]
+    },
+    "configuration": {
+      "title": "Locate This Document",
+      "properties": {
+        "locateThisDocument.showExplorerIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show icon on the side explorer panel"
+        },
+        "locateThisDocument.showEditorTitleIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show icon on the right-top editor title"
+        },
+        "locateThisDocument.showEditorTitleContext": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show editor context menu options"
         }
-      ]
+      }
     }
   },
   "devDependencies": {

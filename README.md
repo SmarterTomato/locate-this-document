@@ -36,7 +36,17 @@ Shortcut: `Control + Shift + Alt + '`
 
 ## Extension Settings
 
-None
+`locateThisDocument.showExplorerIcons`: Whether show icon on the side explorer panel
+
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_explorer_icons.png" alt="Show Explorer Icons">
+
+`locateThisDocument.showEditorTitleIcons`: Whether show icon on the right-top editor title
+
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_icons.png" alt="Show Editor Title Icons">
+
+`locateThisDocument.showEditorTitleContext`: Whether show editor context menu options
+
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_context.png" alt="Show Editor Title Context">
 
 ## Known Issues
 
@@ -44,14 +54,10 @@ None
 
 ## Release Notes
 
-### v1.0.0 Initial release - 2020-05-06
+### v1.1.0 Add some configuration - 2020-06-23
 
-#### New
-
-- Locate this document command
-- Locate active document command
-- Open active document in file explorer command
-- Open workspace root folder in file explorer command
+- Add option to set icons display in sidebar explorer or tab area
+- Hide open in file explorer in vscode remote mode (open in file explorer not work with remote mode)
 
 ## Change Log
 
