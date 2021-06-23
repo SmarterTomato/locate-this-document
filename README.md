@@ -38,15 +38,15 @@ Shortcut: `Control + Shift + Alt + '`
 
 `locateThisDocument.showExplorerIcons`: Whether show icon on the side explorer panel
 
-<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_explorer_icons.png" alt="Show Explorer Icons">
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_explorer_icons.jpg" alt="Show Explorer Icons">
 
 `locateThisDocument.showEditorTitleIcons`: Whether show icon on the right-top editor title
 
-<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_icons.png" alt="Show Editor Title Icons">
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_icons.jpg" alt="Show Editor Title Icons">
 
 `locateThisDocument.showEditorTitleContext`: Whether show editor context menu options
 
-<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_context.png" alt="Show Editor Title Context">
+<img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_context.jpg" alt="Show Editor Title Context">
 
 ## Known Issues
 
