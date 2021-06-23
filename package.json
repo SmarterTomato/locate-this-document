@@ -2,7 +2,7 @@
   "name": "locate-this-document",
   "displayName": "Locate This Document",
   "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "engines": {
     "vscode": "^1.55.0"
   },
@@ -94,7 +94,7 @@
     "menus": {
       "editor/title": [{
           "command": "locateThisDocument.locateActiveDocument",
-          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.locateActiveDocument && resourceScheme == file",
+          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.locateActiveDocument && isFileSystemResource",
           "group": "navigation@1"
         },
         {
@@ -106,7 +106,7 @@
       "view/title": [{
           "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.locateActiveDocument && resourceScheme == file"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.locateActiveDocument && isFileSystemResource"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
@@ -116,12 +116,12 @@
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer"
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer && resourceScheme == file"
         }
       ],
       "editor/title/context": [{
         "command": "locateThisDocument.locateThisDocument",
-        "when": "config.locateThisDocument.editorTitleContext && resourceScheme == file",
+        "when": "config.locateThisDocument.editorTitleContext && isFileSystemResource",
         "group": "navigation"
       }]
     },
