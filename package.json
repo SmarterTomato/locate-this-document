@@ -99,7 +99,7 @@
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
-          "when": "config.locateThisDocument.showEditorTitleIcons && !virtualWorkspace",
+          "when": "config.locateThisDocument.showEditorTitleIcons",
           "group": "navigation@2"
         }
       ],
@@ -111,12 +111,12 @@
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons && !virtualWorkspace"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons"
         },
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.showExplorerIcons && !virtualWorkspace"
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.showExplorerIcons"
         }
       ],
       "editor/title/context": [{
