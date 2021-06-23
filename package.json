@@ -2,7 +2,7 @@
   "name": "locate-this-document",
   "displayName": "Locate This Document",
   "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "vscode": "^1.55.0"
   },
