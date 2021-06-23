@@ -36,15 +36,20 @@ Shortcut: `Control + Shift + Alt + '`
 
 ## Extension Settings
 
-`locateThisDocument.showExplorerIcons`: Whether show icon on the side explorer panel
+`locateThisDocument.explorerIcons.show`: Whether show icon on the side explorer panel. You can turn off icon individually by setting the options below
+`locateThisDocument.explorerIcons.locateActiveDocument`: Whether show locate active document icon on the side explorer panel
+`locateThisDocument.explorerIcons.openActiveDocumentInFileExplorer`: Whether show open active document in file explorer icon on the side explorer panel
+`locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer`: Whether show open workspace root folder in file explorer icon on the side explorer panel
 
 <img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_explorer_icons.jpg" alt="Show Explorer Icons">
 
-`locateThisDocument.showEditorTitleIcons`: Whether show icon on the right-top editor title
+`locateThisDocument.editorTitleIcons.show`: Whether show icon on the right-top editor title. You can turn off icon individually by setting the options below
+`locateThisDocument.editorTitleIcons.locateActiveDocument`: Whether show locate active document icon on the right-top editor title
+`locateThisDocument.editorTitleIcons.openActiveDocumentInFileExplorer`: Whether show open active document in file explorer icon on the right-top editor title
 
 <img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_icons.jpg" alt="Show Editor Title Icons">
 
-`locateThisDocument.showEditorTitleContext`: Whether show editor context menu options
+`locateThisDocument.editorTitleContext`: Whether show editor context menu options
 
 <img src="https://raw.githubusercontent.com/SmarterTomato/locate-this-document/main/resources/readme/show_editor_title_context.jpg" alt="Show Editor Title Context">
 

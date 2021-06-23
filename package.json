@@ -2,7 +2,7 @@
   "name": "locate-this-document",
   "displayName": "Locate This Document",
   "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.55.0"
   },
@@ -94,51 +94,76 @@
     "menus": {
       "editor/title": [{
           "command": "locateThisDocument.locateActiveDocument",
-          "when": "config.locateThisDocument.showEditorTitleIcons",
+          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.locateActiveDocument && resourceScheme == file",
           "group": "navigation@1"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
-          "when": "config.locateThisDocument.showEditorTitleIcons",
+          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.openActiveDocumentInFileExplorer && resourceScheme == file",
           "group": "navigation@2"
         }
       ],
       "view/title": [{
           "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.locateActiveDocument && resourceScheme == file"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.showExplorerIcons"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openActiveDocumentInFileExplorer && resourceScheme == file"
         },
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.showExplorerIcons"
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer"
         }
       ],
       "editor/title/context": [{
         "command": "locateThisDocument.locateThisDocument",
-        "when": "config.locateThisDocument.showEditorTitleContext",
+        "when": "config.locateThisDocument.editorTitleContext && resourceScheme == file",
         "group": "navigation"
       }]
     },
     "configuration": {
       "title": "Locate This Document",
       "properties": {
-        "locateThisDocument.showExplorerIcons": {
+        "locateThisDocument.explorerIcons.show": {
           "type": "boolean",
           "default": true,
           "description": "Whether show icon on the side explorer panel"
         },
-        "locateThisDocument.showEditorTitleIcons": {
+        "locateThisDocument.explorerIcons.locateActiveDocument": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show locate active document icon on the side explorer panel"
+        },
+        "locateThisDocument.explorerIcons.openActiveDocumentInFileExplorer": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show open active document in file explorer icon on the side explorer panel"
+        },
+        "locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show open workspace root folder in file explorer icon on the side explorer panel"
+        },
+        "locateThisDocument.editorTitleIcons.show": {
           "type": "boolean",
           "default": true,
           "description": "Whether show icon on the right-top editor title"
         },
-        "locateThisDocument.showEditorTitleContext": {
+        "locateThisDocument.editorTitleIcons.locateActiveDocument": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show locate active document icon on the right-top editor title"
+        },
+        "locateThisDocument.editorTitleIcons.openActiveDocumentInFileExplorer": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether show open active document in file explorer icon on the right-top editor title"
+        },
+        "locateThisDocument.editorTitleContext": {
           "type": "boolean",
           "default": true,
           "description": "Whether show editor context menu options"
