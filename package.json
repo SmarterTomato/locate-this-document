@@ -2,7 +2,7 @@
   "name": "locate-this-document",
   "displayName": "Locate This Document",
   "description": "Locate This Document add few buttons to the UI for convenience. E.g. Locate current active document in the vscode explorer panel. Open active file in file explorer",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "engines": {
     "vscode": "^1.55.0"
   },
@@ -94,34 +94,34 @@
     "menus": {
       "editor/title": [{
           "command": "locateThisDocument.locateActiveDocument",
-          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.locateActiveDocument && isFileSystemResource",
+          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.locateActiveDocument && resourceScheme == file",
           "group": "navigation@1"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
-          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.openActiveDocumentInFileExplorer && resourceScheme == file",
+          "when": "config.locateThisDocument.editorTitleIcons.show && config.locateThisDocument.editorTitleIcons.openActiveDocumentInFileExplorer && resourceScheme == file && remoteName == ''",
           "group": "navigation@2"
         }
       ],
       "view/title": [{
           "command": "locateThisDocument.locateActiveDocument",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.locateActiveDocument && isFileSystemResource"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.locateActiveDocument && resourceScheme == file"
         },
         {
           "command": "locateThisDocument.openActiveDocumentInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openActiveDocumentInFileExplorer && resourceScheme == file"
+          "when": "view == workbench.explorer.fileView && editorIsOpen && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openActiveDocumentInFileExplorer && resourceScheme == file && remoteName == ''"
         },
         {
           "command": "locateThisDocument.openWorkspaceRootFolderInFileExplorer",
           "group": "navigation",
-          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer && resourceScheme == file"
+          "when": "view == workbench.explorer.fileView && workspaceFolderCount == 1 && config.locateThisDocument.explorerIcons.show && config.locateThisDocument.explorerIcons.openWorkspaceRootFolderInFileExplorer && remoteName == ''"
         }
       ],
       "editor/title/context": [{
         "command": "locateThisDocument.locateThisDocument",
-        "when": "config.locateThisDocument.editorTitleContext && isFileSystemResource",
+        "when": "config.locateThisDocument.editorTitleContext && resourceScheme == file",
         "group": "navigation"
       }]
     },
